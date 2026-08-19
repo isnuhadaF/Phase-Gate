@@ -2,13 +2,13 @@
 public class DayThree {
 	public static void main(){
 		//Question 1
-		String stringReversalResult = stringReversal();
+		String stringReversalResult = stringReversal("Abraham");
 		//Question 2
 		int integerReversalResult = integerReversal(265);
 		//Question 3
 		//Question 4
 		//Question 5
-		int positionOfFirstVowelInAStringResult = positionOfFirstVowelInAString("xzsdsaaskja");
+		int positionOfFirstVowelInAStringResult = positionOfFirstVowelInAString("Oludotun");
 		//Question 6
 		//Question 7
 		double averageOfNumbersResult = averageOfNumbers();
@@ -19,15 +19,14 @@ public class DayThree {
 	}
 	
 	//Question 1: Reverse a given string using a for loop.
-	public static String stringReversal()
+	public static String stringReversal(String string)
 		{
-		String randomWord = "something";
 		for(int i = randomWord.length()-1; i >= 0; i--)
 			{
-			System.out.print(randomWord.charAt(i) + " ");
+			System.out.print(string.charAt(i) + " ");
 			}
 		
-		return randomWord;
+		return string;
 		}
   
   //Question 2: Print the reverse of an integer number.
@@ -98,7 +97,7 @@ public class DayThree {
     return number;
     }
   
-  //Question 9:
+  //Question 9: Count the number of divisors of a given number.
   public static int divisorCounter(int number)
     {
     int divisorCount = 0;

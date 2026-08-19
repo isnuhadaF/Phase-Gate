@@ -3,8 +3,8 @@
 #Question 1: Reverse a given string using a for loop.
 def string_reversal():
 	string = "something"
-	for index in range(len(string)-1, 0):
-		print(string(index))
+	for letter in string:
+		print(letter)
 string_reversal()
 
 #Question 2: Print the reverse of an integer number.
@@ -28,6 +28,35 @@ vowel_position_in_a_string('bla-bla-blacksheep')
 
 
 #Question 6: Print each character of a string with its ASCII value.
+def ascii_value_printer():
+    name = 'Oludotun'
+    for letter in name:
+        print(ord(letter))
+ascii_value_printer()
+
 #Question 7: Find the average of numbers from 1-10.
+def average_of_numbers_1_to_10():
+    total = 0
+    count = 0
+    for number in range(1,11):
+        total += number
+        count += 1
+    average = total/count
+    print('\n\nThe average of numbers 1 to 10 is:', average)
+average_of_numbers_1_to_10()
+
 #Question 8: Print the divisors of a given number.
+def divisor_printer(a_given_number):
+    for divisor in range(1, a_given_number+1):
+        if a_given_number % divisor == 0:
+            print(divisor, 'is a divisor of',a_given_number)
+divisor_printer(100)
+    
 #Question 9: Count the number of divisors of a given number.
+def divisor_counter(a_given_number):
+    divisor_count = 0
+    for divisor in range(1, a_given_number+1):
+        if a_given_number % divisor == 0:
+            divisor_count += 1
+    print(a_given_number, 'has', divisor_count, 'divisors')
+divisor_counter(200)

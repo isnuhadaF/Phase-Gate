@@ -5,7 +5,7 @@ counter = 0
 counter = int(counter)
 
 print("Enter your scores below: ")
-for scores in range(1, 11):
+for index in range(1, 11):
     score = int(input())
     sum_total = sum_total + score
     counter += 1

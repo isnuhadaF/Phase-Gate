@@ -7,20 +7,21 @@ deposit_amount = 0
 withdrawal_amount = 0
 
 def deposit(deposit_amount, account_balance, transactions):
-    if deposit_amount > 0:
-        account_balance += deposit_amount
+    account_balance += deposit_amount
+    deposits.append(deposit_amount)
     
     return account_balance
     
   
-def withdraw(amount, account_balance, transactions):
-    if withdrawal_amount <= account_balance:
-        account_balance -= withdrawal_amount
+def withdraw(withdrawal_amount, account_balance, transactions):
+    account_balance -= withdrawal_amount
+    withdrawals.append(withdrawal_amount)
         
     return account_balance
 
-#def show_transactions(transactions):
-
+def show_transactions(transactions):
+    print('DEPOSITS: ', deposits)
+    print('WITHDRAWALS: ', withdrawals)
 def main():
 
   input("Press ENTER to open the app: ")
@@ -43,20 +44,26 @@ def main():
             deposit_amount = int(deposit_amount)
             if deposit_amount > 0:
                 deposit(deposit_amount, account_balance, transactions)
-                deposits.append(deposit_amount)
             else:
-                print("Invalid Amount entered")
+                print("Invalid deposit amount entered")
             
             
             print("You deposited", deposit_amount, "\nYour new balance is:", account_balance + deposit_amount)            
+        
         case 2:
-            withdrawal_amount = input("How much do you want to withdraw?\nNOTE: MINIMUM WITHDRAWAL IS N5,000 ")
+            withdrawal_amount = input("How much do you want to withdraw?\nNOTE: MINIMUM WITHDRAWAL IS N1,000 ")
             withdrawal_amount = int(withdrawal_amount)
-            if withdrawal_amount > 1000 and withdrawal_amount > account_balance :
-                withdraw()
+            if  withdrawal_amount <= account_balance:
+                if withdrawal_amount > 1000:
+                    withdraw(withdrawal_amount, account_balance, transactions)
+                else:
+                    print("Withdrawal Amount is below the minimum.\nPlease enter a valid amount")
             else:
                 print("Transaction failed: Insufficient funds")
-        #case 3:
+            print("You withdrew", withdrawal_amount, "\nYour new balance is:", account_balance - withdrawal_amount)  
+            
+        case 3:
+            show_transactions()
         case 4: 
             print("Your closing balance is", account_balance)
             print("Here are your transactions", "\nDeposits: ", deposits, "\nWithdrawals: ", withdrawals)

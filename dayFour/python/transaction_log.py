@@ -1,5 +1,6 @@
 
 account_balance = 50000
+account_balance = int(account_balance)
 transactions = []
 deposits = []
 withdrawals = []
@@ -7,14 +8,14 @@ deposit_amount = 0
 withdrawal_amount = 0
 
 def deposit(deposit_amount, account_balance, transactions):
-    account_balance += deposit_amount
+    account_balance = account_balance + deposit_amount
     deposits.append(deposit_amount)
     
     return account_balance
     
   
 def withdraw(withdrawal_amount, account_balance, transactions):
-    account_balance -= withdrawal_amount
+    account_balance = account_balance - withdrawal_amount
     withdrawals.append(withdrawal_amount)
         
     return account_balance
@@ -22,6 +23,8 @@ def withdraw(withdrawal_amount, account_balance, transactions):
 def show_transactions(transactions):
     print('DEPOSITS: ', deposits)
     print('WITHDRAWALS: ', withdrawals)
+
+
 def main():
 
   input("Press ENTER to open the app: ")
@@ -63,11 +66,11 @@ def main():
             print("You withdrew", withdrawal_amount, "\nYour new balance is:", account_balance - withdrawal_amount)  
             
         case 3:
-            show_transactions()
+            show_transactions(transactions)
         case 4: 
             print("Your closing balance is", account_balance)
             print("Here are your transactions", "\nDeposits: ", deposits, "\nWithdrawals: ", withdrawals)
-            #app_open = app_closed
+            app_open = app_closed
                 
 main()
 

@@ -1,7 +1,0 @@
-
-let text_1 = "Hello"
-let text_2 = "World"
-
-const combined = text_1 + text_2
-
-console.log(combined)

@@ -1,4 +1,5 @@
 //PhaseGate Day 5
+import java.lang.Math;
 
 public class DayFive {
   public static void main() {
@@ -9,9 +10,9 @@ public class DayFive {
     //Question 3
     int squareOfNumberCaller = squareOfNumber(5);
     //Question 4
-    double celsiusConverterCaller = celsiusConverter(32);
+    double celsiusConverterCaller = celsiusConverter(17);
     //Question 5
-    boolean primeCheckerCaller = primeChecker(31);
+    boolean primeCheckerCaller = primeChecker(20);
     //Question 6
     int largestOfThreeNumbersCaller = largestOfThreeNumbers(44,12,64);
     //Question 7
@@ -48,7 +49,7 @@ public class DayFive {
   
   //Question 3 
   public static int squareOfNumber(int number)
-  {
+    {
     int square = number * number;
     
   return square;
@@ -70,12 +71,13 @@ public class DayFive {
     
     for(int counter = 2; counter < 10; counter++)
       {
-        if(number % counter == 2)
+        if(number % counter > 0)
           {
             isPrime = true;
-            System.out.println(number + " is a prime number.");
+            
           }
       }
+      System.out.println(number + " is a prime number.");
   
   return isPrime;
   }
@@ -122,11 +124,19 @@ public class DayFive {
   //Question 9
   public static int reverseOfNumber(int number)
   {
-    int reverse = 0;
-      for(int index = 0; index < number; index++)
+    String converter = String.valueOf(number);
+    int reversed = 0;
+    double multiplier = Math.pow(10, converter.length());
+        
+      for(int index = 0; index < converter.length(); index++)
         {
+          reversed += (number % 10) * multiplier;
+          multiplier /= 10;
+          number = number / 10;
         }
-  return reverse;
+        System.out.println(reversed);
+        
+  return reversed;
   }
   
   //Question 10
@@ -135,7 +145,7 @@ public class DayFive {
     int count = 0;
     for(int index = 0; index < word.length()-1; index++)
       {
-      break;
+      
       }
       
   return count;
